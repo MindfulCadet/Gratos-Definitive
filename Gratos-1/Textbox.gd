@@ -52,6 +52,8 @@ func hide_textbox():
 		show_textbox()
 	else:
 		textbox.visible = false
+		Manager.talking = false
+
 
 #Anade texto a la lista
 func dialogue(add_text):

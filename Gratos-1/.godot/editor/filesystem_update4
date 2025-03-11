@@ -1,6 +1,4 @@
 res://Maps/Test_map.tscn
-res://Maps/Warp/Global.gd
-res://Maps/Manager.gd
-res://Characters/PLayable characters/RPG_character.gd
-res://Characters/Overworld/npc.gd
 res://Maps/DEBE/DEBE.tscn
+res://Maps/Basico/node_2d.tscn
+res://Textbox.gd
