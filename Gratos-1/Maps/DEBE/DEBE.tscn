@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://dugt20m6de2at"]
 
-[ext_resource type="Texture2D" uid="uid://c5lducn6wfwf6" path="res://Texture/Hub/Props2.png" id="1_wngms"]
+[ext_resource type="Texture2D" uid="uid://c5lducn6wfwf6" path="res://Maps/Ingenieria/Props2.png" id="1_wngms"]
 [ext_resource type="Texture2D" uid="uid://b7xvq80mgcggl" path="res://Texture/Misc/Food.png" id="2_3idht"]
-[ext_resource type="Texture2D" uid="uid://cgmma0id87dkx" path="res://Texture/Hub/Tiles.png" id="2_gv416"]
+[ext_resource type="Texture2D" uid="uid://cgmma0id87dkx" path="res://Maps/Ingenieria/Tiles.png" id="2_gv416"]
 [ext_resource type="Texture2D" uid="uid://3to5abwx1736" path="res://Texture/Hub/Tileset_Water.png" id="3_mhik8"]
 [ext_resource type="Texture2D" uid="uid://5lmeelwn7rhe" path="res://Texture/TX Props.png" id="5_68bqn"]
 
