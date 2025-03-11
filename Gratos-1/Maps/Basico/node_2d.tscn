@@ -1,6 +1,5 @@
-[gd_scene load_steps=36 format=3 uid="uid://crv8m4hfvthl8"]
+[gd_scene load_steps=37 format=3 uid="uid://crv8m4hfvthl8"]
 
-[ext_resource type="Script" path="res://Maps/Manager.gd" id="1_8x606"]
 [ext_resource type="Script" path="res://Maps/Basico/MissionManager.gd" id="1_bi2v8"]
 [ext_resource type="Script" path="res://Maps/Manager.gd" id="1_sy4uf"]
 [ext_resource type="Texture2D" uid="uid://1rclml3p5d3c" path="res://Texture/TX Tileset Grass.png" id="1_tsqjm"]
@@ -18,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dumlg6mhrijpa" path="res://Characters/Overworld/Friendly/Hub/Guy3.tscn" id="16_14i8k"]
 [ext_resource type="PackedScene" uid="uid://cbg2ew5x62k23" path="res://Characters/Overworld/Friendly/Hub/Guy5.tscn" id="17_rn8ba"]
 [ext_resource type="PackedScene" uid="uid://c78b0ms2d4vqg" path="res://Addons/Inspector.tscn" id="18_3u4fq"]
+[ext_resource type="PackedScene" uid="uid://c8j1xnnk01n4w" path="res://Misc/Transition.tscn" id="19_8nlvk"]
 [ext_resource type="Script" path="res://Manager.gd" id="19_hn7in"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5l2dp"]
@@ -2905,8 +2905,8 @@ Name = ""
 Friendly = true
 Dialogue = Array[String](["pollo", "...¿Que qué hace ese sujeto flotando en el agua?", "Ni idea, estoy tan perdido como tu"])
 
-[node name="Nivel1" type="Node2D"]
-script = ExtResource("1_oo1mi")
+[node name="Map" type="Node2D"]
+script = ExtResource("1_sy4uf")
 RPG_character = ExtResource("2_ntoig")
 map = "res://Maps/Basico/node_2d.tscn"
 
@@ -3029,6 +3029,12 @@ resource = SubResource("Resource_i4bw2")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
+
+[node name="Transition" parent="." instance=ExtResource("19_8nlvk")]
+position = Vector2(-157, 159)
+to = "res://Maps/Test_map.tscn"
+positionx = 543
+positiony = -282
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_evento_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_evento_body_exited"]

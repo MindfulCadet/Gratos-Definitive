@@ -1,6 +1,6 @@
-[gd_scene load_steps=24 format=4 uid="uid://du4rd818tjfxw"]
+[gd_scene load_steps=25 format=4 uid="uid://du4rd818tjfxw"]
 
-[ext_resource type="Texture2D" uid="uid://cgmma0id87dkx" path="res://Maps/Ingenieria/Tiles.png" id="1_5la8w"]
+[ext_resource type="Texture2D" uid="uid://cgmma0id87dkx" path="res://Texture/Hub/Tiles.png" id="1_5la8w"]
 [ext_resource type="Script" path="res://Maps/Manager.gd" id="1_20lqr"]
 [ext_resource type="Texture2D" uid="uid://ddlreo2g67fxy" path="res://Texture/TX Tileset Stone Ground.png" id="1_i30qw"]
 [ext_resource type="Texture2D" uid="uid://gx5sidbfbjfo" path="res://Texture/TX Tileset Wall.png" id="2_3woql"]
@@ -8,7 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://5lmeelwn7rhe" path="res://Texture/TX Props.png" id="5_jej3a"]
 [ext_resource type="Texture2D" uid="uid://devctucr0iukf" path="res://Texture/TX Struct.png" id="6_m8rcf"]
 [ext_resource type="Texture2D" uid="uid://1rclml3p5d3c" path="res://Texture/TX Tileset Grass.png" id="7_8l22i"]
-[ext_resource type="Texture2D" uid="uid://c5lducn6wfwf6" path="res://Maps/Ingenieria/Props2.png" id="8_m2ajf"]
+[ext_resource type="Texture2D" uid="uid://c5lducn6wfwf6" path="res://Texture/Hub/Props2.png" id="8_m2ajf"]
+[ext_resource type="PackedScene" uid="uid://c8j1xnnk01n4w" path="res://Misc/Transition.tscn" id="10_0satp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_opoh3"]
 
@@ -686,3 +687,12 @@ position = Vector2(281, 961)
 
 [node name="3" type="Node2D" parent="Spawn" groups=["Spawnpoint"]]
 position = Vector2(280, 989)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(568.529, 522.938)
+
+[node name="Transition" parent="." instance=ExtResource("10_0satp")]
+position = Vector2(573, 109)
+to = "res://Maps/Test_map.tscn"
+positionx = -25
+positiony = 123

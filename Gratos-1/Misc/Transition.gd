@@ -1,6 +1,8 @@
 extends Area2D
 
 @export_file("*.tscn") var to
+@export var positionx : int
+@export var positiony : int
 
 func battle_scene(map):
 	match map:
@@ -17,6 +19,8 @@ func battle_scene(map):
 			Manager.arena = "res://Combat/Combat maps/Basico_combate.tscn"
 
 func _on_area_entered(area):
-	Manager.change_map(get_parent().get_tree().root, to)
 	GameControl.current_map = to
 	battle_scene(to)
+	Manager.player_last_position = Vector2( positionx, positiony)
+	Manager.change_map(get_parent().get_tree().root, to)
+	

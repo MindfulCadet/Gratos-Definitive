@@ -20,7 +20,7 @@ var step_pixel : float = 0.0:
 			$Stats.visible = false
 			$inventario.visible = false
 			camera.enabled = false
-			Manager.change_to(get_parent().get_tree().root, "Map")
+			Manager.change_to(get_parent().get_tree().root, "Map" + str(GameControl.n))
 
 			step = 0
 			

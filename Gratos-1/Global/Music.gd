@@ -6,6 +6,7 @@ extends Node
 @onready var ingenieria = $Ingenieria
 @onready var enemigo = $Combate_comun
 @onready var victoria = $Victoria
+@onready var debe = $Debe
 #Efectos de sonido
 @onready var select = $SFX/Seleccion
 @onready var invalid = $SFX/Invalido

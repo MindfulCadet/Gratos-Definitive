@@ -4,4 +4,4 @@
 
 [node name="Manager" type="Node2D"]
 script = ExtResource("1_x1fud")
-arena = "res://Combat/Combat maps/Basico_combate.tscn"
+arena = ""

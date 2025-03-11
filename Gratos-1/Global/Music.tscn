@@ -1,16 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://dygssy3bg6she"]
+[gd_scene load_steps=12 format=3 uid="uid://dygssy3bg6she"]
 
 [ext_resource type="Script" path="res://Global/Music.gd" id="1_g7ti3"]
+[ext_resource type="AudioStream" uid="uid://cw3d8aanfbnyu" path="res://Music/Debe.mp3" id="2_635bi"]
 [ext_resource type="AudioStream" uid="uid://d3ws552xemq3t" path="res://Music/Hub theme.mp3" id="2_mylxp"]
 [ext_resource type="AudioStream" uid="uid://jxky33rvyfwg" path="res://Music/Victory.mp3" id="2_wtkl6"]
 [ext_resource type="AudioStream" uid="uid://b3kvcd5bjosmx" path="res://Music/Battle Theme.mp3" id="3_eotdu"]
 [ext_resource type="AudioStream" uid="uid://daho6ewyuivpt" path="res://Sfx/menu-move.ogg" id="4_kfnmj"]
+[ext_resource type="AudioStream" uid="uid://jk1iw5knurbl" path="res://Music/Basico.mp3" id="4_q3g4c"]
 [ext_resource type="AudioStream" uid="uid://6ke2ey08dbjg" path="res://Sfx/Invalid.mp3" id="5_x4cg5"]
+[ext_resource type="AudioStream" uid="uid://b1ussdlmxvd5j" path="res://Music/Ingenieria.mp3" id="6_5mlmf"]
 [ext_resource type="AudioStream" uid="uid://c8t5b8scmeaob" path="res://Sfx/Hit.mp3" id="7_7gxin"]
 [ext_resource type="AudioStream" uid="uid://jtr8exri2ro1" path="res://Sfx/Hit2.mp3" id="8_150hu"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_g7ti3")
+
+[node name="Debe" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_635bi")
 
 [node name="Victoria" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_wtkl6")
@@ -19,9 +25,10 @@ stream = ExtResource("2_wtkl6")
 stream = ExtResource("2_mylxp")
 
 [node name="Basico" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_q3g4c")
 
 [node name="Ingenieria" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_mylxp")
+stream = ExtResource("6_5mlmf")
 
 [node name="Combate_comun" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_eotdu")

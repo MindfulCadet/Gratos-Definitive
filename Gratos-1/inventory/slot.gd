@@ -11,12 +11,14 @@ var active = false
 #var slot = ""
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print(get_parent().get_parent().get_parent().get_parent().get_tree_string_pretty())
 	pass
 var path = preload("res://inventory/items/objetos.tscn")
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+		
 		var player = get_parent().get_parent().get_parent() # se obtiene el nodo del jugador
-		var map = get_parent().get_parent().get_parent().get_tree().root.get_node("Map") # obtenemos al mapa ( si se puede hacer mejoralo)
+		var map = get_parent().get_parent().get_parent().get_parent().get_tree().root.get_node("Map" + str(GameControl.n)) # obtenemos al mapa ( si se puede hacer mejoralo)
 
 		# Si el usuario desea vaciar un slot debe seleccionar uno, esto activara al botón y si presiona backspace se botara el objeto al mapa
 		if active and Input.is_action_just_pressed("delete") and item != null: # por supuesto el slot debe estar lleno

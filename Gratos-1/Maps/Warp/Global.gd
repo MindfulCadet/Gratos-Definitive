@@ -24,8 +24,10 @@ func _ready():
 	encounter = randi_range(25,50)
 	
 func change_to(tree, type: String):
+	if GameControl.current_map == "res://Maps/Test_map.tscn":
+		return 0
 	
-	if type == "Map":
+	if type == ("Map" + str(GameControl.n)):
 		tree.get_node(type).queue_free()
 		#current_tree.change_to_scene(arena)
 		var battle_scene = load(arena).instantiate()
@@ -41,7 +43,7 @@ func change_to(tree, type: String):
 
 
 func change_map(from, to):
-	from.get_node("Map").queue_free()
+	from.get_node("Map" + str(GameControl.n)).queue_free()
 	
 	var new_map = load(to).instantiate()
 	from.add_child(new_map)
@@ -49,5 +51,3 @@ func change_map(from, to):
 func save_data(player):
 	player_last_position = player.position
 	
-func load_enemies(_ene):
-	pass

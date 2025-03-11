@@ -1,0 +1,226 @@
+[gd_scene load_steps=35 format=3 uid="uid://cfbqvlfaphdvn"]
+
+[ext_resource type="Texture2D" uid="uid://b46vu5wmjyd5y" path="res://Texture/NPC/Elite Orc/Elite Orc/Elite Orc-Attack01.png" id="1_1dr26"]
+[ext_resource type="Texture2D" uid="uid://ce3vr3shvpb4u" path="res://Texture/NPC/Elite Orc/Elite Orc/Elite Orc-Death.png" id="2_n8qsy"]
+[ext_resource type="Texture2D" uid="uid://iag03lc27oen" path="res://Texture/NPC/Elite Orc/Elite Orc/Elite Orc-Hurt.png" id="3_vk8u3"]
+[ext_resource type="Texture2D" uid="uid://dsvmc41kktsar" path="res://Texture/NPC/Elite Orc/Elite Orc/Elite Orc-Idle.png" id="4_4s18s"]
+[ext_resource type="Script" path="res://Characters/Battle enemies/Enemy_battle_script.gd" id="5_lwtb4"]
+[ext_resource type="Script" path="res://Addons/Skills.gd" id="6_ewjgx"]
+[ext_resource type="Resource" uid="uid://di8w4sq81gff6" path="res://Skills/Barbarian/Hachazo_certero.tres" id="7_ik5b3"]
+[ext_resource type="PackedScene" uid="uid://dscfc6id23ecm" path="res://Addons/Stats_inspector.tscn" id="8_owkxo"]
+[ext_resource type="FontFile" uid="uid://cjy11xjo0p2xe" path="res://Fonts/ldfcomicsans-font/Ldfcomicsans-jj7l.ttf" id="9_2j83g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5mvq"]
+atlas = ExtResource("1_1dr26")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dus2"]
+atlas = ExtResource("1_1dr26")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5og1g"]
+atlas = ExtResource("1_1dr26")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4efw2"]
+atlas = ExtResource("1_1dr26")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rke0h"]
+atlas = ExtResource("1_1dr26")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0eiu"]
+atlas = ExtResource("1_1dr26")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcxo3"]
+atlas = ExtResource("1_1dr26")
+region = Rect2(600, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6r4o"]
+atlas = ExtResource("2_n8qsy")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dysd"]
+atlas = ExtResource("2_n8qsy")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgphx"]
+atlas = ExtResource("2_n8qsy")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6n4xu"]
+atlas = ExtResource("2_n8qsy")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kt6xv"]
+atlas = ExtResource("3_vk8u3")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmx8i"]
+atlas = ExtResource("3_vk8u3")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4rlg"]
+atlas = ExtResource("3_vk8u3")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qq20i"]
+atlas = ExtResource("3_vk8u3")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmr72"]
+atlas = ExtResource("4_4s18s")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqpxb"]
+atlas = ExtResource("4_4s18s")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgb5o"]
+atlas = ExtResource("4_4s18s")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxb2b"]
+atlas = ExtResource("4_4s18s")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8h1i"]
+atlas = ExtResource("4_4s18s")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwm4u"]
+atlas = ExtResource("4_4s18s")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e2gwe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5mvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dus2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5og1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4efw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rke0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0eiu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcxo3")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6r4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dysd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgphx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6n4xu")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kt6xv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmx8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4rlg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qq20i")
+}],
+"loop": false,
+"name": &"Hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmr72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqpxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgb5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxb2b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8h1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwm4u")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Theme" id="Theme_f88ej"]
+default_font = ExtResource("9_2j83g")
+default_font_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xgs5k"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_npdvs"]
+bg_color = Color(0.984314, 0.27451, 0.211765, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="animation" type="AnimatedSprite2D"]
+z_index = 10
+sprite_frames = SubResource("SpriteFrames_e2gwe")
+animation = &"Idle"
+script = ExtResource("5_lwtb4")
+flipped = true
+enemy_name = "Orco elite"
+attacks = Array[ExtResource("6_ewjgx")]([ExtResource("7_ik5b3")])
+
+[node name="Stats" parent="." instance=ExtResource("8_owkxo")]
+vida = 16
+velocidad = 6
+ataque = 10
+defensa = 5
+exp = 20
+
+[node name="Life" type="ProgressBar" parent="."]
+offset_left = -19.0
+offset_top = -25.0
+offset_right = 23.0
+offset_bottom = -13.0
+theme = SubResource("Theme_f88ej")
+theme_override_styles/background = SubResource("StyleBoxFlat_xgs5k")
+theme_override_styles/fill = SubResource("StyleBoxFlat_npdvs")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

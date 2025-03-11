@@ -1,38 +1,51 @@
-[gd_scene load_steps=34 format=3 uid="uid://cfbqvlfaphdvn"]
+[gd_scene load_steps=38 format=3 uid="uid://cfbqvlfaphdvn"]
 
+[ext_resource type="Texture2D" uid="uid://cbmbwjvd4bhcf" path="res://Texture/NPC/Greatsword Skeleton/Greatsword Skeleton/Greatsword Skeleton-Attack01.png" id="1_kdai6"]
 [ext_resource type="Script" path="res://Characters/Battle enemies/Enemy_battle_script.gd" id="1_s2nts"]
 [ext_resource type="Script" path="res://Addons/Skills.gd" id="2_byg43"]
 [ext_resource type="PackedScene" uid="uid://dscfc6id23ecm" path="res://Addons/Stats_inspector.tscn" id="3_xe8lu"]
 [ext_resource type="FontFile" uid="uid://cjy11xjo0p2xe" path="res://Fonts/ldfcomicsans-font/Ldfcomicsans-jj7l.ttf" id="4_fey0d"]
-[ext_resource type="Texture2D" uid="uid://demerct4djh8h" path="res://Texture/NPC/Skeleton/Skeleton-Attack01.png" id="7_5msce"]
+[ext_resource type="Resource" uid="uid://p46617xa6thh" path="res://Skills/Enemies/Magia_II.tres" id="7_5pdrf"]
 [ext_resource type="Texture2D" uid="uid://dticonse6whe0" path="res://Texture/NPC/Skeleton/Skeleton-Idle.png" id="7_8vav5"]
-[ext_resource type="Resource" uid="uid://d1lfa218hf1ms" path="res://Skills/Knight/Estocada.tres" id="7_ksclt"]
+[ext_resource type="Resource" uid="uid://cppol5if171mu" path="res://Skills/Knight/Corte_certero.tres" id="8_0v5la"]
 [ext_resource type="Texture2D" uid="uid://dic3wyxo3voo8" path="res://Texture/NPC/Skeleton/Skeleton-Death.png" id="8_vkfma"]
 [ext_resource type="Texture2D" uid="uid://3uvi74jngwn8" path="res://Texture/NPC/Skeleton/Skeleton-Hurt.png" id="9_t3fjv"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_edks5"]
-atlas = ExtResource("7_5msce")
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrota"]
+atlas = ExtResource("1_kdai6")
 region = Rect2(0, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0b1ec"]
-atlas = ExtResource("7_5msce")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mh1i"]
+atlas = ExtResource("1_kdai6")
 region = Rect2(100, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1o203"]
-atlas = ExtResource("7_5msce")
+[sub_resource type="AtlasTexture" id="AtlasTexture_egql4"]
+atlas = ExtResource("1_kdai6")
 region = Rect2(200, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4g3fh"]
-atlas = ExtResource("7_5msce")
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2k40"]
+atlas = ExtResource("1_kdai6")
 region = Rect2(300, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xbbu7"]
-atlas = ExtResource("7_5msce")
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgd5k"]
+atlas = ExtResource("1_kdai6")
 region = Rect2(400, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_85b7x"]
-atlas = ExtResource("7_5msce")
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5clc"]
+atlas = ExtResource("1_kdai6")
 region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkida"]
+atlas = ExtResource("1_kdai6")
+region = Rect2(600, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc3oa"]
+atlas = ExtResource("1_kdai6")
+region = Rect2(700, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xvjp"]
+atlas = ExtResource("1_kdai6")
+region = Rect2(800, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wg1um"]
 atlas = ExtResource("8_vkfma")
@@ -94,22 +107,31 @@ region = Rect2(500, 0, 100, 100)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_edks5")
+"texture": SubResource("AtlasTexture_nrota")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0b1ec")
+"texture": SubResource("AtlasTexture_8mh1i")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1o203")
+"texture": SubResource("AtlasTexture_egql4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4g3fh")
+"texture": SubResource("AtlasTexture_t2k40")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xbbu7")
+"texture": SubResource("AtlasTexture_rgd5k")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_85b7x")
+"texture": SubResource("AtlasTexture_t5clc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkida")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc3oa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xvjp")
 }],
 "loop": false,
 "name": &"Attack",
@@ -198,14 +220,15 @@ animation = &"Attack"
 script = ExtResource("1_s2nts")
 flipped = true
 enemy_name = "Esqueleto"
-attacks = Array[ExtResource("2_byg43")]([ExtResource("7_ksclt")])
+attacks = Array[ExtResource("2_byg43")]([ExtResource("7_5pdrf"), ExtResource("8_0v5la")])
 
 [node name="Stats" parent="." instance=ExtResource("3_xe8lu")]
-vida = 10
-velocidad = 4
-ataque = 5
-defensa = 2
-exp = 5
+vida = 13
+magia = 10
+velocidad = 10
+ataque = 10
+defensa = 5
+exp = 20
 
 [node name="Life" type="ProgressBar" parent="."]
 offset_left = -19.0

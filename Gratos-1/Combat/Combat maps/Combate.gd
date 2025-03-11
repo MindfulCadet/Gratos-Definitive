@@ -6,7 +6,7 @@ var index: int = 0
 var selection = []
 @export var area :String
 #Accede a la carpeta donde se encuentran los enemigos
-var files_in_directory = DirAccess.get_files_at("res://Characters/Battle enemies/Scripts/")
+var files_in_directory  
 
 #Arreglos que contienen a los enemigos y jugadores
 var turn_order = []
@@ -18,9 +18,33 @@ var turn_actual = true
 var attack_done = false
 var finished = false
 var lost = false
+var directory
 
+func match_area():
+	match Manager.arena:
+		"res://Combat/Combat maps/Debe_combate.tscn":
+			directory = "res://Characters/Battle enemies/Scripts/Debe/"
+		
+		"res://Combat/Combat maps/Decanato_combate.tscn":
+			directory = "res://Characters/Battle enemies/Scripts/Decanato/"
+			
+		"res://Combat/Combat maps/Ingenieria_combate.tscn":
+			directory = "res://Characters/Battle enemies/Scripts/Ingenieria/"
+			
+		"res://Combat/Combat maps/Basico_combate.tscn":	
+			directory = "res://Characters/Battle enemies/Scripts/Basico/"
+			
+			
 func _ready():
-	Music.change_track(Music.enemigo, Music.hub)
+	match_area()
+	files_in_directory = DirAccess.get_files_at(directory)
+	
+	Music.basico.stop()
+	Music.ingenieria.stop()
+	Music.hub.stop()
+	Music.debe.stop()
+	Music.enemigo.play()
+
 	character_spawn()
 	enemy_n = spawn_enemies()
 	
@@ -83,7 +107,7 @@ func spawn_enemies():
 		
 		random_enemy = files_in_directory[randi() % files_in_directory.size()]
 		print(random_enemy)
-		enemy = load("res://Characters/Battle enemies/Scripts/" + random_enemy).instantiate()
+		enemy = load(directory + random_enemy).instantiate()
 		enemies.append(enemy)
 		add_child(enemies[i])
 		match i:
@@ -272,6 +296,7 @@ func battle_end():
 		menu.textbox.show_textbox()
 		
 	elif finished and !menu.textbox.textbox:
+		Music.victoria.stop()
 		Manager.change_to(get_parent().get_tree().root, "Combate")
 		
 func game_over():
