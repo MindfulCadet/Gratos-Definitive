@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://cbqked6ogjdiv"]
 
-[ext_resource type="Script" path="res://Characters/Overworld/npc_boss.gd" id="1_21cco"]
-[ext_resource type="Texture2D" uid="uid://cdnyfuifpa2jw" path="res://Texture/NPC/Werewolf/Werewolf-Idle.png" id="2_2nbml"]
+[ext_resource type="Script" path="res://Characters/npc_boss.gd" id="1_21cco"]
+[ext_resource type="Texture2D" uid="uid://lr6my5djv4xm" path="res://Texture/Playable Characters/Character sprite/Werewolf/Werewolf-Idle.png" id="2_2nbml"]
 [ext_resource type="PackedScene" uid="uid://b4dgqhgyuawxu" path="res://Textbox.tscn" id="3_u4an7"]
 [ext_resource type="AudioStream" uid="uid://b6ty312ne64fw" path="res://Sfx/rpg-text-speech-sound-131477.mp3" id="4_fh4kb"]
 [ext_resource type="PackedScene" uid="uid://c78b0ms2d4vqg" path="res://Addons/Inspector.tscn" id="5_tpu0h"]
