@@ -11,7 +11,10 @@ var encounter : int = 30:
 var enemy_cache : Dictionary = {}
 
 var enemy_appearence = {
-	"Basico" : ["000","001"]
+	"Basico" : ["000","001","002"],
+	"Ingenieria" : ["003","004","005"],
+	"Debe" : ["006","007","008"],
+	"Decanato" : ["009","010","011"],
 }
 		
 var player_last_position : Vector2 = Vector2(0,0)
@@ -36,6 +39,13 @@ func change_to(tree, type: String):
 		battle = false
 		tree.add_child(battle_scene)
 
+
+func change_map(from, to):
+	from.get_node("Map").queue_free()
+	
+	var new_map = load(to).instantiate()
+	from.add_child(new_map)
+	
 func save_data(player):
 	player_last_position = player.position
 	

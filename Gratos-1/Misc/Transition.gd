@@ -1,11 +1,22 @@
-extends CanvasLayer
+extends Area2D
 
+@export_file("*.tscn") var to
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func battle_scene(map):
+	match map:
+		"res://Maps/DEBE/DEBE.tscn":
+			Manager.arena = "res://Combat/Combat maps/Debe_combate.tscn"
+		
+		"res://Maps/Ecat/ecat.tscn":
+			Manager.arena = "res://Combat/Combat maps/Decanato_combate.tscn"
+			
+		"res://Maps/Ingenieria/maingenieria.tscn":
+			Manager.arena = "res://Combat/Combat maps/Ingenieria_combate.tscn"
+			
+		"res://Maps/Basico/node_2d.tscn":	
+			Manager.arena = "res://Combat/Combat maps/Basico_combate.tscn"
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _on_area_entered(area):
+	Manager.change_map(get_parent().get_tree().root, to)
+	GameControl.current_map = to
+	battle_scene(to)

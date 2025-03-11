@@ -1033,6 +1033,7 @@ sources/4 = SubResource("TileSetAtlasSource_b3ont")
 process_mode = 3
 z_index = 15
 script = ExtResource("1_78inm")
+area = "Basico"
 
 [node name="Sky" type="Sprite2D" parent="."]
 position = Vector2(287, -32)

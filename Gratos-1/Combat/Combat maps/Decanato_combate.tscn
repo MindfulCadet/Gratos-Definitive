@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://w51th8oq40rg"]
 
 [ext_resource type="Script" path="res://Combat/Combat maps/Combate.gd" id="1_78inm"]
-[ext_resource type="Texture2D" uid="uid://cgmma0id87dkx" path="res://Texture/Hub/Tiles.png" id="2_7gfch"]
-[ext_resource type="Texture2D" uid="uid://c5lducn6wfwf6" path="res://Texture/Hub/Props2.png" id="3_81tqg"]
+[ext_resource type="Texture2D" uid="uid://cgmma0id87dkx" path="res://Maps/Ingenieria/Tiles.png" id="2_7gfch"]
+[ext_resource type="Texture2D" uid="uid://c5lducn6wfwf6" path="res://Maps/Ingenieria/Props2.png" id="3_81tqg"]
 [ext_resource type="PackedScene" uid="uid://bahe63ewgm2mx" path="res://Combat/Combat_menu.tscn" id="4_q0kg2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kf1ek"]
@@ -511,10 +511,11 @@ texture = ExtResource("3_81tqg")
 sources/1 = SubResource("TileSetAtlasSource_kf1ek")
 sources/2 = SubResource("TileSetAtlasSource_0ukkb")
 
-[node name="Decanato" type="Node2D"]
+[node name="Combate" type="Node2D"]
 process_mode = 3
 z_index = 15
 script = ExtResource("1_78inm")
+area = "Decanato"
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_faowr")

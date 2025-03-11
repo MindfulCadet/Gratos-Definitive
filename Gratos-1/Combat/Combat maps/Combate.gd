@@ -4,6 +4,7 @@ extends Node2D
 @onready var menu = $CanvasLayer
 var index: int = 0
 var selection = []
+@export var area :String
 #Accede a la carpeta donde se encuentran los enemigos
 var files_in_directory = DirAccess.get_files_at("res://Characters/Battle enemies/Scripts/")
 

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://Maps/Manager.gd" id="1_8x606"]
 [ext_resource type="Script" path="res://Maps/Basico/MissionManager.gd" id="1_bi2v8"]
+[ext_resource type="Script" path="res://Maps/Manager.gd" id="1_sy4uf"]
 [ext_resource type="Texture2D" uid="uid://1rclml3p5d3c" path="res://Texture/TX Tileset Grass.png" id="1_tsqjm"]
 [ext_resource type="PackedScene" uid="uid://bqry4a0o2fpul" path="res://Characters/PLayable characters/RPG_character.tscn" id="2_ntoig"]
 [ext_resource type="Texture2D" uid="uid://devctucr0iukf" path="res://Texture/TX Struct.png" id="2_tx5pt"]
@@ -2905,8 +2906,9 @@ Friendly = true
 Dialogue = Array[String](["pollo", "...¿Que qué hace ese sujeto flotando en el agua?", "Ni idea, estoy tan perdido como tu"])
 
 [node name="Nivel1" type="Node2D"]
-script = ExtResource("1_8x606")
+script = ExtResource("1_oo1mi")
 RPG_character = ExtResource("2_ntoig")
+map = "res://Maps/Basico/node_2d.tscn"
 
 [node name="Node2D" type="Node2D" parent="."]
 script = ExtResource("1_bi2v8")
@@ -2979,16 +2981,16 @@ placeholder_text = "Escriba su respuesta aqui"
 position = Vector2(1, 1)
 
 [node name="0" type="Node2D" parent="Spawn" groups=["Spawnpoint"]]
-position = Vector2(-24, 135)
+position = Vector2(122, 139)
 
 [node name="1" type="Node2D" parent="Spawn" groups=["Spawnpoint"]]
-position = Vector2(55, 147)
+position = Vector2(116, 175)
 
 [node name="2" type="Node2D" parent="Spawn" groups=["Spawnpoint"]]
-position = Vector2(348, 346)
+position = Vector2(258, 165)
 
 [node name="3" type="Node2D" parent="Spawn" groups=["Spawnpoint"]]
-position = Vector2(395, 299)
+position = Vector2(175, 131)
 
 [node name="NPCPesca" parent="." instance=ExtResource("15_rhjgk")]
 position = Vector2(846, 537)

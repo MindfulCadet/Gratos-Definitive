@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://jsgjtm8opnlp"]
+[gd_scene load_steps=36 format=3 uid="uid://jsgjtm8opnlp"]
 
 [ext_resource type="Script" path="res://Maps/Manager.gd" id="1_8sk3l"]
 [ext_resource type="PackedScene" uid="uid://bqry4a0o2fpul" path="res://Characters/PLayable characters/RPG_character.tscn" id="2_ca3qn"]
@@ -6,14 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://b7opfhs7jg6kc" path="res://Characters/Overworld/Friendly/Hub/Guy.tscn" id="3_a8n3o"]
 [ext_resource type="Texture2D" uid="uid://du2u6x1x3jlx3" path="res://Texture/Hub/Tileset_Ground.png" id="4_nbc4n"]
 [ext_resource type="Texture2D" uid="uid://b7xvq80mgcggl" path="res://Texture/Misc/Food.png" id="5_6ktqs"]
-[ext_resource type="Texture2D" uid="uid://cgmma0id87dkx" path="res://Texture/Hub/Tiles.png" id="5_i4a46"]
+[ext_resource type="Texture2D" uid="uid://cgmma0id87dkx" path="res://Maps/Ingenieria/Tiles.png" id="5_i4a46"]
 [ext_resource type="Texture2D" uid="uid://ckemtjvnh0m3v" path="res://Texture/Hub/Water+.png" id="6_ap8y0"]
 [ext_resource type="Texture2D" uid="uid://bub8aq4yvpxqk" path="res://Texture/Hub/Tileset_RockSlope.png" id="7_ygu07"]
 [ext_resource type="Texture2D" uid="uid://d0d3ng730bvru" path="res://Texture/Hub/Tileset_RockSlope_Simple.png" id="8_ntrou"]
 [ext_resource type="Texture2D" uid="uid://c0ey2gccucnk6" path="res://Texture/Hub/Props.png" id="9_ywu8k"]
 [ext_resource type="Texture2D" uid="uid://vh6ygcmwgv3y" path="res://Texture/Hub/Trees_Bushes.png" id="10_x7gwl"]
 [ext_resource type="Texture2D" uid="uid://3to5abwx1736" path="res://Texture/Hub/Tileset_Water.png" id="11_q6xs3"]
-[ext_resource type="Texture2D" uid="uid://c5lducn6wfwf6" path="res://Texture/Hub/Props2.png" id="12_xxp13"]
+[ext_resource type="Texture2D" uid="uid://c5lducn6wfwf6" path="res://Maps/Ingenieria/Props2.png" id="12_xxp13"]
 [ext_resource type="PackedScene" uid="uid://8njyus51vpf2" path="res://Characters/Overworld/Friendly/Hub/Merchant.tscn" id="15_dblup"]
 [ext_resource type="PackedScene" uid="uid://daaywk0my6qsw" path="res://Characters/Overworld/Friendly/Hub/Guy2.tscn" id="15_j3khl"]
 [ext_resource type="PackedScene" uid="uid://dumlg6mhrijpa" path="res://Characters/Overworld/Friendly/Hub/Guy3.tscn" id="16_2yh6j"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://q36hipp17qlt" path="res://inventory/items/veneno.png" id="20_0dkbq"]
 [ext_resource type="PackedScene" uid="uid://bqkomcagxpo2o" path="res://Characters/Overworld/Friendly/Hub/Guy6.tscn" id="21_pu3yv"]
 [ext_resource type="Texture2D" uid="uid://bfwe46ptpumjg" path="res://inventory/items/espada.png" id="22_pqvqw"]
+[ext_resource type="PackedScene" uid="uid://c8j1xnnk01n4w" path="res://Misc/Transition.tscn" id="23_jcfv3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v2mmv"]
 texture = ExtResource("3_0seik")
@@ -2368,3 +2369,7 @@ image = ExtResource("22_pqvqw")
 clase_de_item = "caballero"
 nameObj = ""
 nivel_del_item = "epico"
+
+[node name="Transition" parent="." instance=ExtResource("23_jcfv3")]
+position = Vector2(586, -610)
+to = "res://Maps/Basico/node_2d.tscn"
