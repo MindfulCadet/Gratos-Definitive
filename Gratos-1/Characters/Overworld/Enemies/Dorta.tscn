@@ -61,7 +61,7 @@ animations = [{
 script = ExtResource("6_popep")
 Name = "Jefe"
 Friendly = true
-Dialogue = Array[String](["Bienvenido al departamento de computación?", "me pregunto quien te dejo pasar", "Vaya por alguna razón no contestas, pues me da igual"])
+Dialogue = Array[String](["TIENES QUE GANARTE EL TITULO!!!", "me pregunto quien te dejo pasarSoy el gran Worfta", "Lucha conmigo si quieres"])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x0i35"]
 size = Vector2(19, 24)
