@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq014tsvnavcn"]
+
+[ext_resource type="Texture2D" uid="uid://damdynwhs23yl" path="res://icon.svg" id="1_srik4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75bel"]
+size = Vector2(128, 128)
+
+[node name="Sprite2D" type="Sprite2D"]
+position = Vector2(-1, 0)
+scale = Vector2(0.265625, 0.273438)
+texture = ExtResource("1_srik4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_75bel")
+disabled = true
+one_way_collision = true

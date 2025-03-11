@@ -1,0 +1,105 @@
+[gd_scene load_steps=17 format=3 uid="uid://bacf2riskv658"]
+
+[ext_resource type="Script" path="res://Characters/Overworld/npc.gd" id="1_66xf0"]
+[ext_resource type="Texture2D" uid="uid://5oeyjr0f1h7a" path="res://Texture/NPC/Friendly/Soldier-Idle.png" id="2_hyprw"]
+[ext_resource type="PackedScene" uid="uid://b4dgqhgyuawxu" path="res://Textbox.tscn" id="3_s4kqi"]
+[ext_resource type="AudioStream" uid="uid://b6ty312ne64fw" path="res://Sfx/rpg-text-speech-sound-131477.mp3" id="4_10u7b"]
+[ext_resource type="PackedScene" uid="uid://c78b0ms2d4vqg" path="res://Addons/Inspector.tscn" id="4_kvw5h"]
+[ext_resource type="Script" path="res://Manager.gd" id="6_cgb8f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgukd"]
+atlas = ExtResource("2_hyprw")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gju8"]
+atlas = ExtResource("2_hyprw")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42nrr"]
+atlas = ExtResource("2_hyprw")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fon4u"]
+atlas = ExtResource("2_hyprw")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxbch"]
+atlas = ExtResource("2_hyprw")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etckd"]
+atlas = ExtResource("2_hyprw")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_43qqo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgukd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gju8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42nrr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fon4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxbch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etckd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_h6wxn"]
+script = ExtResource("6_cgb8f")
+Name = ""
+Friendly = true
+Dialogue = Array[String](["Feliz día, valiente aventurero", "¿Te apetece comprar algunos de los items?"])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x0i35"]
+size = Vector2(19, 24)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_twa3v"]
+radius = 24.0208
+
+[node name="NPC" type="CharacterBody2D"]
+z_index = 9
+motion_mode = 1
+script = ExtResource("1_66xf0")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 0)
+sprite_frames = SubResource("SpriteFrames_43qqo")
+flip_h = true
+
+[node name="Textbox" parent="." instance=ExtResource("3_s4kqi")]
+unique_name_in_owner = true
+
+[node name="Textboxsfx" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_10u7b")
+
+[node name="Node2D" parent="." instance=ExtResource("4_kvw5h")]
+unique_name_in_owner = true
+resource = SubResource("Resource_h6wxn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_x0i35")
+
+[node name="Event" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Event"]
+position = Vector2(-2, 0)
+shape = SubResource("CircleShape2D_twa3v")
+
+[connection signal="area_entered" from="Event" to="." method="_on_event_area_entered"]
+[connection signal="area_exited" from="Event" to="." method="_on_event_area_exited"]
