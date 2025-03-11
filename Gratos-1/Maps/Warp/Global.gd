@@ -1,6 +1,7 @@
 extends Node2D
 
 @export_file("*.tscn") var arena 
+var talking = false
 var reaady = false
 var battle= false
 var encounter : int = 30:

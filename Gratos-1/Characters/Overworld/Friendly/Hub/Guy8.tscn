@@ -1,0 +1,107 @@
+[gd_scene load_steps=17 format=3 uid="uid://du2kf33srowsh"]
+
+[ext_resource type="Script" path="res://Characters/Overworld/npc.gd" id="1_8aos0"]
+[ext_resource type="Texture2D" uid="uid://cgwnb1c40h48v" path="res://Texture/NPC/Friendly/dad-idle.png" id="2_nkwr5"]
+[ext_resource type="PackedScene" uid="uid://b4dgqhgyuawxu" path="res://Textbox.tscn" id="3_7y4yu"]
+[ext_resource type="AudioStream" uid="uid://b6ty312ne64fw" path="res://Sfx/rpg-text-speech-sound-131477.mp3" id="4_bqw0s"]
+[ext_resource type="PackedScene" uid="uid://c78b0ms2d4vqg" path="res://Addons/Inspector.tscn" id="5_1sjb5"]
+[ext_resource type="Script" path="res://Manager.gd" id="6_kqbp2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rac41"]
+atlas = ExtResource("2_nkwr5")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mci06"]
+atlas = ExtResource("2_nkwr5")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0m8m"]
+atlas = ExtResource("2_nkwr5")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ndjf"]
+atlas = ExtResource("2_nkwr5")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jh5nx"]
+atlas = ExtResource("2_nkwr5")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1mns"]
+atlas = ExtResource("2_nkwr5")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0w1e2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rac41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mci06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0m8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ndjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jh5nx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1mns")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_h6wxn"]
+script = ExtResource("6_kqbp2")
+Name = "Jefe"
+Friendly = true
+Dialogue = Array[String](["Bienvenido al departamento de computación?", "me pregunto quien te dejo pasar", "Vaya por alguna razón no contestas, pues me da igual"])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x0i35"]
+size = Vector2(19, 24)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_twa3v"]
+radius = 24.0208
+
+[node name="NPC" type="CharacterBody2D"]
+z_index = 9
+motion_mode = 1
+script = ExtResource("1_8aos0")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -15)
+sprite_frames = SubResource("SpriteFrames_0w1e2")
+frame_progress = 0.798768
+flip_h = true
+
+[node name="Textbox" parent="." instance=ExtResource("3_7y4yu")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Textboxsfx" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_bqw0s")
+
+[node name="Node2D" parent="." instance=ExtResource("5_1sjb5")]
+unique_name_in_owner = true
+resource = SubResource("Resource_h6wxn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_x0i35")
+
+[node name="Event" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Event"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_twa3v")
+
+[connection signal="area_entered" from="Event" to="." method="_on_event_area_entered"]
+[connection signal="area_exited" from="Event" to="." method="_on_event_area_exited"]

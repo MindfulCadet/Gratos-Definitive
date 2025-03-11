@@ -47,22 +47,25 @@ func _physics_process(delta):
 	if is_multiplayer_authority() and is_physics_processing():
 		$Stats.visible = true
 		$inventario.visible = true # Esto es para que el inventario solo sea visible por el propietario
-
-		var direction = Input.get_vector("ui_left","ui_right", "ui_up", "ui_down")
-		if direction:
-			character.play("Walk")
+		if  Manager.talking == false:
+			var direction = Input.get_vector("ui_left","ui_right", "ui_up", "ui_down")
+			if direction:
+				character.play("Walk")
+				
+				if direction.x > 0:
+					character.flip_h = false
+						
+				elif direction.x < 0:
+					character.flip_h = true
 			
-			if direction.x > 0:
-				character.flip_h = false
-					
-			elif direction.x < 0:
-				character.flip_h = true
-		
-		else:
+			else:
+				character.play("Idle")
+				
+			velocity = direction * mov_speed
+		else: 
+			velocity = Vector2.ZERO
 			character.play("Idle")
 			
-		velocity = direction * mov_speed
-		
 		move_and_slide()
 		step_pixel += position.distance_to(initial) #Suma los pixeles movidos
 		

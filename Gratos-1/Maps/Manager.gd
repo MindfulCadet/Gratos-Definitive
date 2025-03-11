@@ -6,7 +6,6 @@ extends Node2D
 @export_file("*.tscn") var map
 var camera_pos 
 
-
 #Crea instancias de los personajes jugables correspondiente al 
 #numero de jugadores
 func _ready():

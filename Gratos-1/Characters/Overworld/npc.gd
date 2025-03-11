@@ -14,8 +14,10 @@ func Show_textbox():
 		for index in range(len(%Node2D.resource.Dialogue)):
 			%Textbox.dialogue(%Node2D.resource.Dialogue[index])
 		%Textbox.show_textbox()
+		Manager.talking = true
 	elif !%Node2D.resource.Friendly:
 		%Textbox.visible = false
+		Manager.talking = false
 	
 func _process(delta):
 	if %Node2D.resource.Friendly:
