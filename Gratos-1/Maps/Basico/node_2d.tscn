@@ -1,7 +1,7 @@
 [gd_scene load_steps=36 format=3 uid="uid://crv8m4hfvthl8"]
 
 [ext_resource type="Script" path="res://Maps/Basico/MissionManager.gd" id="1_bi2v8"]
-[ext_resource type="Script" path="res://Maps/Basico/ManagerBasico.gd" id="1_oo1mi"]
+[ext_resource type="Script" path="res://Maps/Manager.gd" id="1_sy4uf"]
 [ext_resource type="Texture2D" uid="uid://1rclml3p5d3c" path="res://Texture/TX Tileset Grass.png" id="1_tsqjm"]
 [ext_resource type="PackedScene" uid="uid://bqry4a0o2fpul" path="res://Characters/PLayable characters/RPG_character.tscn" id="2_ntoig"]
 [ext_resource type="Texture2D" uid="uid://devctucr0iukf" path="res://Texture/TX Struct.png" id="2_tx5pt"]
@@ -12,10 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://ckemtjvnh0m3v" path="res://Texture/Hub/Water+.png" id="5_a0f56"]
 [ext_resource type="Texture2D" uid="uid://gx5sidbfbjfo" path="res://Texture/TX Tileset Wall.png" id="10_aq2wh"]
 [ext_resource type="Texture2D" uid="uid://nsp551uexi36" path="res://Maps/Basico/World01_002_Salamander.png" id="14_gwypg"]
-[ext_resource type="PackedScene" uid="uid://b7opfhs7jg6kc" path="res://Characters/Overworld/Friendly/Guy.tscn" id="15_flrgj"]
-[ext_resource type="PackedScene" uid="uid://8njyus51vpf2" path="res://Characters/Overworld/Friendly/Merchant.tscn" id="15_rhjgk"]
-[ext_resource type="PackedScene" uid="uid://dumlg6mhrijpa" path="res://Characters/Overworld/Friendly/Guy3.tscn" id="16_14i8k"]
-[ext_resource type="PackedScene" uid="uid://cbg2ew5x62k23" path="res://Characters/Overworld/Friendly/Guy4.tscn" id="17_rn8ba"]
+[ext_resource type="PackedScene" uid="uid://b7opfhs7jg6kc" path="res://Characters/Overworld/Friendly/Hub/Guy.tscn" id="15_flrgj"]
+[ext_resource type="PackedScene" uid="uid://8njyus51vpf2" path="res://Characters/Overworld/Friendly/Hub/Merchant.tscn" id="15_rhjgk"]
+[ext_resource type="PackedScene" uid="uid://dumlg6mhrijpa" path="res://Characters/Overworld/Friendly/Hub/Guy3.tscn" id="16_14i8k"]
+[ext_resource type="PackedScene" uid="uid://cbg2ew5x62k23" path="res://Characters/Overworld/Friendly/Hub/Guy5.tscn" id="17_rn8ba"]
 [ext_resource type="PackedScene" uid="uid://c78b0ms2d4vqg" path="res://Addons/Inspector.tscn" id="18_3u4fq"]
 [ext_resource type="Script" path="res://Manager.gd" id="19_hn7in"]
 
@@ -2904,9 +2904,10 @@ Name = ""
 Friendly = true
 Dialogue = Array[String](["pollo", "...¿Que qué hace ese sujeto flotando en el agua?", "Ni idea, estoy tan perdido como tu"])
 
-[node name="Nivel1" type="Node2D"]
-script = ExtResource("1_oo1mi")
+[node name="Map" type="Node2D"]
+script = ExtResource("1_sy4uf")
 RPG_character = ExtResource("2_ntoig")
+map = "res://Maps/Basico/node_2d.tscn"
 
 [node name="Node2D" type="Node2D" parent="."]
 script = ExtResource("1_bi2v8")
@@ -2979,16 +2980,16 @@ placeholder_text = "Escriba su respuesta aqui"
 position = Vector2(1, 1)
 
 [node name="0" type="Node2D" parent="Spawn" groups=["Spawnpoint"]]
-position = Vector2(-24, 135)
+position = Vector2(122, 139)
 
 [node name="1" type="Node2D" parent="Spawn" groups=["Spawnpoint"]]
-position = Vector2(55, 147)
+position = Vector2(116, 175)
 
 [node name="2" type="Node2D" parent="Spawn" groups=["Spawnpoint"]]
-position = Vector2(348, 346)
+position = Vector2(258, 165)
 
 [node name="3" type="Node2D" parent="Spawn" groups=["Spawnpoint"]]
-position = Vector2(395, 299)
+position = Vector2(175, 131)
 
 [node name="NPCPesca" parent="." instance=ExtResource("15_rhjgk")]
 position = Vector2(846, 537)

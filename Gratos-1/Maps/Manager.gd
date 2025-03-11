@@ -3,7 +3,7 @@ extends Node2D
 #TODO: se debe eliminar or completo la instancia anterior
 #del mapa (cuando se regrese del combate)
 @export var  RPG_character : PackedScene
-@export_file("*.tscn") var 
+@export_file("*.tscn") var map
 var camera_pos 
 
 
