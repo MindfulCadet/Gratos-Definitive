@@ -1,11 +1,14 @@
-[gd_scene load_steps=21 format=3 uid="uid://cfbqvlfaphdvn"]
+[gd_scene load_steps=38 format=3 uid="uid://cfbqvlfaphdvn"]
 
 [ext_resource type="Texture2D" uid="uid://km4njuvxehwc" path="res://Texture/NPC/Skeleton Archer/Skeleton Archer-Attack.png" id="1_pkbx2"]
 [ext_resource type="Script" path="res://Characters/Battle enemies/Enemy_battle_script.gd" id="1_s2nts"]
 [ext_resource type="Script" path="res://Addons/Skills.gd" id="2_byg43"]
+[ext_resource type="Texture2D" uid="uid://d3j1aqqgbmn1l" path="res://Texture/NPC/Skeleton Archer/Skeleton Archer-Death.png" id="2_ui0cv"]
+[ext_resource type="Texture2D" uid="uid://g5stl266js15" path="res://Texture/NPC/Skeleton Archer/Skeleton Archer-Hurt.png" id="3_tneni"]
 [ext_resource type="PackedScene" uid="uid://dscfc6id23ecm" path="res://Addons/Stats_inspector.tscn" id="3_xe8lu"]
 [ext_resource type="Resource" uid="uid://dx4t0rmlxtr72" path="res://Skills/Enemies/Proyectil.tres" id="4_e2xlo"]
 [ext_resource type="FontFile" uid="uid://cjy11xjo0p2xe" path="res://Fonts/ldfcomicsans-font/Ldfcomicsans-jj7l.ttf" id="4_fey0d"]
+[ext_resource type="Texture2D" uid="uid://d13pk4jer5bti" path="res://Texture/NPC/Skeleton Archer/Skeleton Archer-Idle.png" id="4_l25bd"]
 [ext_resource type="Resource" uid="uid://p3kgdrmdad18" path="res://Skills/Archer/Lanzamiento_de_Flecha.tres" id="5_8b3tb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6nob0"]
@@ -44,6 +47,62 @@ region = Rect2(700, 0, 100, 100)
 atlas = ExtResource("1_pkbx2")
 region = Rect2(800, 0, 100, 100)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0yw4"]
+atlas = ExtResource("2_ui0cv")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8j5s"]
+atlas = ExtResource("2_ui0cv")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44knx"]
+atlas = ExtResource("2_ui0cv")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_844xo"]
+atlas = ExtResource("2_ui0cv")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnia8"]
+atlas = ExtResource("3_tneni")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajaf3"]
+atlas = ExtResource("3_tneni")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uklm"]
+atlas = ExtResource("3_tneni")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifxf8"]
+atlas = ExtResource("3_tneni")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_segr3"]
+atlas = ExtResource("4_l25bd")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mupgm"]
+atlas = ExtResource("4_l25bd")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycq3g"]
+atlas = ExtResource("4_l25bd")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0326l"]
+atlas = ExtResource("4_l25bd")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7fnv"]
+atlas = ExtResource("4_l25bd")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0jwb"]
+atlas = ExtResource("4_l25bd")
+region = Rect2(500, 0, 100, 100)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_e2gwe"]
 animations = [{
 "frames": [{
@@ -78,17 +137,59 @@ animations = [{
 "name": &"Attack",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0yw4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8j5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44knx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_844xo")
+}],
 "loop": false,
 "name": &"Death",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnia8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajaf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3uklm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifxf8")
+}],
 "loop": false,
 "name": &"Hurt",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_segr3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mupgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycq3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0326l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7fnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0jwb")
+}],
 "loop": true,
 "name": &"Idle",
 "speed": 5.0
@@ -115,7 +216,7 @@ corner_radius_bottom_left = 10
 [node name="animation" type="AnimatedSprite2D"]
 z_index = 10
 sprite_frames = SubResource("SpriteFrames_e2gwe")
-animation = &"Attack"
+animation = &"Idle"
 script = ExtResource("1_s2nts")
 flipped = true
 enemy_name = "Esqueleto Arquero"
