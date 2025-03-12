@@ -2382,14 +2382,11 @@ to = "res://Maps/DEBE/DEBE.tscn"
 positionx = 342
 positiony = 293
 
-[node name="Node2D" type="Node2D" parent="Transition2"]
-position = Vector2(172, 32)
-
 [node name="Transition3" parent="." instance=ExtResource("23_jcfv3")]
 position = Vector2(1032, -116)
 to = "res://Maps/Ingenieria/maingenieria.tscn"
 positionx = 568
 positiony = 522
 
-[node name="Node2D" type="Node2D" parent="Transition3"]
-position = Vector2(-25, 123)
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-1279, -150)

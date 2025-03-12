@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dpynry271fibe" path="res://Texture/Playable Characters/Character sprite/Barbarian/Armored Axeman-Idle.png" id="5_vnd7b"]
 [ext_resource type="Texture2D" uid="uid://c73ymqivr0hrj" path="res://Texture/Playable Characters/Character sprite/Archer/Archer-Idle.png" id="6_tjsw6"]
 [ext_resource type="Texture2D" uid="uid://dkj3kmaaw02pm" path="res://Texture/Playable Characters/Character sprite/Wizard/Wizard-Idle.png" id="7_r1l1w"]
-[ext_resource type="Texture2D" uid="uid://c2tsa4mu2lfvt" path="res://Characters/Misc/finger.png" id="8_ylugc"]
+[ext_resource type="Texture2D" uid="uid://c2tsa4mu2lfvt" path="res://Texture/Misc/finger.png" id="8_ylugc"]
 [ext_resource type="PackedScene" uid="uid://cylangw0sb7mt" path="res://transitions/transtion.tscn" id="9_njgpy"]
 [ext_resource type="Texture2D" uid="uid://dq00nbal7vmmg" path="res://Texture/Playable Characters/Character sprite/Knight/Knight-Walk.png" id="10_arv7g"]
 [ext_resource type="Texture2D" uid="uid://65jtucyr84ki" path="res://Texture/Playable Characters/Character sprite/Barbarian/Armored Axeman-Walk.png" id="11_iq0s6"]
@@ -776,6 +776,7 @@ one_shot = true
 
 [node name="Stats" type="Label" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 314.0
 offset_top = 301.0
 offset_right = 394.0

@@ -1,21 +1,13 @@
-[gd_scene load_steps=52 format=3 uid="uid://dvkacl0f54w3d"]
+[gd_scene load_steps=44 format=3 uid="uid://dvkacl0f54w3d"]
 
 [ext_resource type="Texture2D" uid="uid://c8m7gfdpeug23" path="res://Texture/Playable Characters/Character sprite/Wizard/Wizard-Attack02.png" id="1_kkxeo"]
 [ext_resource type="Texture2D" uid="uid://dkj3kmaaw02pm" path="res://Texture/Playable Characters/Character sprite/Wizard/Wizard-Idle.png" id="1_kqrs4"]
 [ext_resource type="Texture2D" uid="uid://car6d7bpnky3c" path="res://Texture/Playable Characters/Character sprite/Wizard/Wizard-Walk.png" id="2_5qwct"]
 [ext_resource type="Texture2D" uid="uid://dunofgelshl1i" path="res://Texture/Playable Characters/Character sprite/Wizard/Wizard-DEATH.png" id="2_im23k"]
 [ext_resource type="Texture2D" uid="uid://d1ro4n32cc3xb" path="res://Texture/Playable Characters/Character sprite/Wizard/Wizard-Hurt.png" id="3_ax4k1"]
-[ext_resource type="Script" path="res://Characters/PLayable characters/Scenes/Classes.gd" id="3_x4th4"]
-[ext_resource type="Script" path="res://Addons/Skills.gd" id="7_14wh4"]
-[ext_resource type="Resource" uid="uid://doprx0c65nn5h" path="res://Skills/Wizard/Bola_de_fuego_I.tres" id="8_lnh38"]
-[ext_resource type="Resource" uid="uid://ljtuvwnmfyvn" path="res://Skills/Wizard/Bola_de_fuego_II.tres" id="9_td0yu"]
-[ext_resource type="Resource" uid="uid://qnxgd3gnaqyi" path="res://Skills/Wizard/Golpe_con_baston.tres" id="10_0iiwp"]
+[ext_resource type="Script" path="res://Combat/PvP/PvP_characters/Classespvp.gd" id="6_nyi2a"]
+[ext_resource type="PackedScene" uid="uid://dscfc6id23ecm" path="res://Addons/Stats_inspector.tscn" id="8_hepek"]
 [ext_resource type="FontFile" uid="uid://cjy11xjo0p2xe" path="res://Fonts/ldfcomicsans-font/Ldfcomicsans-jj7l.ttf" id="11_36wa8"]
-[ext_resource type="Resource" uid="uid://bpoenjl74pddl" path="res://Skills/Wizard/Golpe_muy_fuerte_con_baston.tres" id="11_nsh6v"]
-[ext_resource type="Resource" uid="uid://douqk5tral5yx" path="res://Skills/Wizard/Mango_bajito.tres" id="12_m12oq"]
-[ext_resource type="Resource" uid="uid://bdtgee6wx7p44" path="res://Skills/Wizard/Rafaga_magica_I.tres" id="13_f1ql3"]
-[ext_resource type="Resource" uid="uid://cir5rqbtbmwl4" path="res://Skills/Wizard/Rafaga_magica_II.tres" id="14_l6uis"]
-[ext_resource type="Resource" uid="uid://d0q4t07sk17g1" path="res://Skills/Wizard/Rafaga_magica_III.tres" id="15_sxegt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oufw6"]
 atlas = ExtResource("1_kkxeo")
@@ -281,8 +273,7 @@ corner_radius_bottom_left = 10
 z_index = 9
 sprite_frames = SubResource("SpriteFrames_ji0m7")
 animation = &"Idle"
-script = ExtResource("3_x4th4")
-attacks = Array[ExtResource("7_14wh4")]([ExtResource("8_lnh38"), ExtResource("9_td0yu"), ExtResource("10_0iiwp"), ExtResource("11_nsh6v"), ExtResource("12_m12oq"), ExtResource("13_f1ql3"), ExtResource("14_l6uis"), ExtResource("15_sxegt")])
+script = ExtResource("6_nyi2a")
 
 [node name="Life" type="ProgressBar" parent="."]
 visible = false
@@ -303,5 +294,13 @@ offset_bottom = -13.0
 theme = SubResource("Theme_ofsbt")
 theme_override_styles/background = SubResource("StyleBoxFlat_517kk")
 theme_override_styles/fill = SubResource("StyleBoxFlat_f8b4m")
+
+[node name="Stats" parent="." instance=ExtResource("8_hepek")]
+vida = 68
+magia = 55
+velocidad = 32
+ataque = 12
+defensa = 32
+nivel = 10
 
 [connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

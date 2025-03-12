@@ -209,7 +209,7 @@ corner_radius_bottom_left = 10
 [node name="animation" type="AnimatedSprite2D"]
 z_index = 10
 sprite_frames = SubResource("SpriteFrames_e2gwe")
-animation = &"Idle"
+animation = &"Attack"
 script = ExtResource("1_s2nts")
 flipped = true
 enemy_name = "Esqueleto"

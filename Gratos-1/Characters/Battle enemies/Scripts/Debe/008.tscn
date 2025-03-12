@@ -201,7 +201,7 @@ corner_radius_bottom_left = 10
 [node name="animation" type="AnimatedSprite2D"]
 z_index = 10
 sprite_frames = SubResource("SpriteFrames_e2gwe")
-animation = &"Idle"
+animation = &"Attack"
 script = ExtResource("5_lwtb4")
 flipped = true
 enemy_name = "Orco elite"

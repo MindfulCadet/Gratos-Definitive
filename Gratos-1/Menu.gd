@@ -62,6 +62,7 @@ func player_info(nameP,id):
 #Inicia el juego al presionar el boton de iniciar 
 @rpc("any_peer", "call_local")
 func StartGame():
+
 	$Transtion.visible = true
 	$Transtion._on_play()
 	$Control/AnimationPlayer.play(("hide"))
@@ -71,6 +72,7 @@ func StartGame():
 
 func _on_play_button_down():
 	print("play<<<<<<<<<<<")
+	
 	peer = ENetMultiplayerPeer.new()
 	peer.create_server(port)
 	multiplayer.set_multiplayer_peer(peer)

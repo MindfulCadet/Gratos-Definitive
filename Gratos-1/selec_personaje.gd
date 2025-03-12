@@ -132,9 +132,14 @@ func deshabilitar(nro):
 #si se cumple, avanza y muestra el juego
 func revision():
 	var cantidad = personajes.size()
-	if cantidad == 1:
+	if cantidad == 1 and  GameControl.players_online <= 1:
 		var game = load("res://Maps/Test_map.tscn").instantiate()
 		get_tree().root.add_child(game)
+		$".".visible = false
+	
+	elif cantidad == 1 and GameControl.players_online == 2:
+		var battle = load("res://Combat/PvP/PvP_mapa.tscn").instantiate()
+		get_tree().root.add_child(battle)
 		$".".visible = false
 	'''else:
 		if cantidad >= 2 :

@@ -1,0 +1,140 @@
+[gd_scene load_steps=18 format=3 uid="uid://bahe63ewgm2mx"]
+
+[ext_resource type="Script" path="res://Combat/Combat_menu.gd" id="1_1m7nu"]
+[ext_resource type="FontFile" uid="uid://cjy11xjo0p2xe" path="res://Fonts/ldfcomicsans-font/Ldfcomicsans-jj7l.ttf" id="1_by7rl"]
+[ext_resource type="Texture2D" uid="uid://cqekhr244iaxt" path="res://Texture/Combat_icons/Sword.png" id="1_c8jm6"]
+[ext_resource type="Texture2D" uid="uid://cvtqrrnc6kio8" path="res://Texture/Combat_icons/Fire.webp" id="2_47b2e"]
+[ext_resource type="Theme" uid="uid://cvgypcfh7xnur" path="res://Fonts/Combat_menu.tres" id="2_ssl4v"]
+[ext_resource type="Texture2D" uid="uid://dk0yri2awrr8u" path="res://Texture/Combat_icons/healing_potion.png" id="3_vcpkd"]
+[ext_resource type="Texture2D" uid="uid://c34bexx0cwasx" path="res://Texture/Combat_icons/Run.png" id="5_d4ieg"]
+[ext_resource type="AudioStream" uid="uid://daho6ewyuivpt" path="res://Sfx/menu-move.ogg" id="8_mxrey"]
+[ext_resource type="PackedScene" uid="uid://b4dgqhgyuawxu" path="res://Textbox.tscn" id="9_6npqt"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0fddq"]
+
+[sub_resource type="Theme" id="Theme_3im7v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8lt1q"]
+bg_color = Color(0.237539, 0.237539, 0.237539, 1)
+border_width_left = 15
+border_width_top = 10
+border_width_right = 15
+border_width_bottom = 10
+border_color = Color(0.520004, 0.317515, 0.07121, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_im6jr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8jqx8"]
+content_margin_left = 50.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_18y5c"]
+content_margin_left = 20.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xijo7"]
+content_margin_left = 20.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s1jj8"]
+content_margin_left = 20.0
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_1m7nu")
+
+[node name="Textbox" parent="." instance=ExtResource("9_6npqt")]
+visible = false
+
+[node name="Container Alpha" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 57.0
+offset_top = 475.0
+offset_right = -46.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Color" type="Panel" parent="Container Alpha"]
+material = SubResource("CanvasItemMaterial_0fddq")
+layout_mode = 2
+theme = SubResource("Theme_3im7v")
+theme_override_styles/panel = SubResource("StyleBoxFlat_8lt1q")
+
+[node name="Container Beta" type="MarginContainer" parent="Container Alpha"]
+custom_minimum_size = Vector2(1000, 100)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Basic_menu" type="ItemList" parent="Container Alpha/Container Beta" groups=["Menus"]]
+unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_im6jr")
+clip_contents = false
+layout_mode = 2
+theme = ExtResource("2_ssl4v")
+theme_type_variation = &"Comic sans"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/icon_margin = 0
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_by7rl")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8jqx8")
+item_count = 4
+max_columns = 2
+same_column_width = true
+fixed_column_width = 450
+fixed_icon_size = Vector2i(50, 50)
+item_0/text = "Combate"
+item_0/icon = ExtResource("1_c8jm6")
+item_1/text = "Especial"
+item_1/icon = ExtResource("2_47b2e")
+item_2/text = "Item"
+item_2/icon = ExtResource("3_vcpkd")
+item_3/text = "Huir"
+item_3/icon = ExtResource("5_d4ieg")
+
+[node name="Combat" type="ItemList" parent="Container Alpha/Container Beta" groups=["Menus"]]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme = ExtResource("2_ssl4v")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_styles/panel = SubResource("StyleBoxEmpty_18y5c")
+
+[node name="Item" type="ItemList" parent="Container Alpha/Container Beta" groups=["Menus"]]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme = ExtResource("2_ssl4v")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_styles/panel = SubResource("StyleBoxEmpty_xijo7")
+
+[node name="Special" type="ItemList" parent="Container Alpha/Container Beta" groups=["Menus"]]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme = ExtResource("2_ssl4v")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_styles/panel = SubResource("StyleBoxEmpty_s1jj8")
+
+[node name="Sfx" type="AudioStreamPlayer" parent="Container Alpha/Container Beta"]
+unique_name_in_owner = true
+stream = ExtResource("8_mxrey")
+
+[connection signal="item_clicked" from="Container Alpha/Container Beta/Basic_menu" to="." method="_on_basic_menu_item_clicked"]
+[connection signal="item_clicked" from="Container Alpha/Container Beta/Combat" to="." method="_on_combat_item_clicked"]
+[connection signal="item_clicked" from="Container Alpha/Container Beta/Item" to="." method="_on_item_item_clicked"]
+[connection signal="item_clicked" from="Container Alpha/Container Beta/Special" to="." method="_on_special_item_clicked"]

@@ -7,6 +7,7 @@ extends AnimatedSprite2D
 @export var nivel:int = 1
 @export var attacks : Array[Skill] 
 @export var enemy = false
+@export var new = 1
 #Barra de vida y magia para el combate
 @onready var life = $Life
 @onready var magic = $Magic
