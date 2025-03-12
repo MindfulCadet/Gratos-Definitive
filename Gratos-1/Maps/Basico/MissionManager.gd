@@ -21,7 +21,6 @@ var misiones = {
 
 #Oculta al boss y al lineedit de las respuestas de la trivia
 func _ready():
-	$"../miniBoss".visible = false
 	$"../respuesta".visible = false
 
 #Revisa constantemente si se entró a las areas de cada mision
@@ -65,7 +64,7 @@ func pescar(completada):
 		$"../Timer".start()
 		activo = true
 	else:
-		print("Felicidades, pescaste suficiente comida para los gatos, ahora ve con el X para entregarla")
+		print("Felicidades, pescaste suficiente comida para los gatos, ahora ve con el aventurero para entregarla")
 		misiones["1"]["completada"] = true
 	
 
@@ -110,7 +109,7 @@ func responder(pregunta, respuesta, correcta):
 		print("Incorrecto")
 
 
-
+'''
 func bossfight():
 	var completadas = 0
 	for i in misiones:
@@ -120,7 +119,7 @@ func bossfight():
 		$"../miniBoss".visible = true
 		print("puedes luchar contra el boss")
 		#permitir el acceso a la bossfight y mandar a la escena de combate
-
+'''
 #Cuando se acaba el tiempo se revisa la cantidad de clicks
 #y se dice si se ganó o perdió
 func _on_timer_timeout():
@@ -134,18 +133,18 @@ func _on_timer_timeout():
 		print("perdiste")
 		clicks = 0
 	#Nivel 2: Medio
-	elif clicks >= 40 and completados == 1:
+	elif clicks >= 35 and completados == 1:
 		print("ganaste")
 		completados += 1
 		clicks = 0
-	elif clicks < 40 and completados == 1:
+	elif clicks < 35 and completados == 1:
 		print("perdiste")
 		clicks = 0
 	#Nivel 3: Dificil
-	elif clicks >= 45 and completados == 2:
+	elif clicks >= 36 and completados == 2:
 		print("ganaste el minijuego completo")
 		completados += 1
 		pescar(completados)
-	elif clicks < 45 and completados == 2:
+	elif clicks < 36 and completados == 2:
 		print("perdiste")
 		clicks = 0
