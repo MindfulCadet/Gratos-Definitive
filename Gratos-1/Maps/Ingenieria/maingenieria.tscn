@@ -694,5 +694,5 @@ position = Vector2(568.529, 522.938)
 [node name="Transition" parent="." instance=ExtResource("10_0satp")]
 position = Vector2(573, 109)
 to = "res://Maps/Test_map.tscn"
-positionx = -1279
-positiony = -150
+positionx = 1000
+positiony = 5

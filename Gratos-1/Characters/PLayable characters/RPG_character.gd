@@ -15,6 +15,7 @@ var step_pixel : float = 0.0:
 		var step = step_pixel/distance_traveled
 
 		if step >= Manager.encounter:
+
 			set_physics_process(false)
 			Manager.save_data(self)
 			$Stats.visible = false
@@ -67,7 +68,9 @@ func _physics_process(delta):
 			character.play("Idle")
 			
 		move_and_slide()
-		step_pixel += position.distance_to(initial) #Suma los pixeles movidos
+		
+		if GameControl.current_map != "res://Maps/Test_map.tscn":
+			step_pixel += position.distance_to(initial) #Suma los pixeles movidos
 		
 	else: 
 		$Stats.visible = false

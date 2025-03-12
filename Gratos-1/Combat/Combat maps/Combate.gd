@@ -106,8 +106,8 @@ func spawn_enemies():
 	for i in random:
 		
 		random_enemy = files_in_directory[randi() % files_in_directory.size()]
-		print(random_enemy)
-		enemy = load(directory + random_enemy).instantiate()
+
+		enemy = load(str(directory + random_enemy).trim_suffix('.remap')).instantiate()
 		enemies.append(enemy)
 		add_child(enemies[i])
 		match i:
