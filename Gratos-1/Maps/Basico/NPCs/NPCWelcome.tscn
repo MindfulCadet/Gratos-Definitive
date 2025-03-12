@@ -1,0 +1,105 @@
+[gd_scene load_steps=17 format=3 uid="uid://c4yybastfafqu"]
+
+[ext_resource type="Script" path="res://Characters/Overworld/npc.gd" id="1_svhd7"]
+[ext_resource type="Texture2D" uid="uid://hmn5nxbmslbs" path="res://Texture/NPC/Friendly/Swordsman-Idle.png" id="2_w5kvc"]
+[ext_resource type="PackedScene" uid="uid://b4dgqhgyuawxu" path="res://Textbox.tscn" id="3_ngiof"]
+[ext_resource type="AudioStream" uid="uid://b6ty312ne64fw" path="res://Sfx/rpg-text-speech-sound-131477.mp3" id="4_073xv"]
+[ext_resource type="PackedScene" uid="uid://c78b0ms2d4vqg" path="res://Addons/Inspector.tscn" id="5_iwa8p"]
+[ext_resource type="Script" path="res://Manager.gd" id="6_pxowa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kejlt"]
+atlas = ExtResource("2_w5kvc")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gu6b"]
+atlas = ExtResource("2_w5kvc")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuvga"]
+atlas = ExtResource("2_w5kvc")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qilrm"]
+atlas = ExtResource("2_w5kvc")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjwri"]
+atlas = ExtResource("2_w5kvc")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3w1a"]
+atlas = ExtResource("2_w5kvc")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_43qqo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kejlt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gu6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yuvga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qilrm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjwri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3w1a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_h6wxn"]
+script = ExtResource("6_pxowa")
+Name = ""
+Friendly = true
+Dialogue = Array[String](["Bienvenido a Cursos Basicos!...", "O al menos lo que queda de lo que solía ser..", "Sientente como en casa, puede explorar los alrededores y conocer al resto de aventureros"])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x0i35"]
+size = Vector2(19, 24)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_twa3v"]
+radius = 24.0208
+
+[node name="NPC" type="CharacterBody2D"]
+z_index = 9
+motion_mode = 1
+script = ExtResource("1_svhd7")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 0)
+sprite_frames = SubResource("SpriteFrames_43qqo")
+flip_h = true
+
+[node name="Textbox" parent="." instance=ExtResource("3_ngiof")]
+unique_name_in_owner = true
+
+[node name="Textboxsfx" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_073xv")
+
+[node name="Node2D" parent="." instance=ExtResource("5_iwa8p")]
+unique_name_in_owner = true
+resource = SubResource("Resource_h6wxn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_x0i35")
+
+[node name="Event" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Event"]
+position = Vector2(-2, 0)
+shape = SubResource("CircleShape2D_twa3v")
+
+[connection signal="area_entered" from="Event" to="." method="_on_event_area_entered"]
+[connection signal="area_exited" from="Event" to="." method="_on_event_area_exited"]

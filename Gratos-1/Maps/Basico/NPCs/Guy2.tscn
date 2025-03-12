@@ -1,0 +1,105 @@
+[gd_scene load_steps=17 format=3 uid="uid://qknya2cl4te8"]
+
+[ext_resource type="Script" path="res://Characters/Overworld/npc.gd" id="1_1jey7"]
+[ext_resource type="Texture2D" uid="uid://b8tsfwgn7ilae" path="res://Characters/Battle enemies/Scripts/Jefes/paladin/Knights Templar_Idle.png" id="2_v5cve"]
+[ext_resource type="PackedScene" uid="uid://b4dgqhgyuawxu" path="res://Textbox.tscn" id="3_lq5o1"]
+[ext_resource type="AudioStream" uid="uid://b6ty312ne64fw" path="res://Sfx/rpg-text-speech-sound-131477.mp3" id="4_dpgu0"]
+[ext_resource type="PackedScene" uid="uid://c78b0ms2d4vqg" path="res://Addons/Inspector.tscn" id="5_o8ycx"]
+[ext_resource type="Script" path="res://Manager.gd" id="6_86ric"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t76r"]
+atlas = ExtResource("2_v5cve")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2ytr"]
+atlas = ExtResource("2_v5cve")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72sqd"]
+atlas = ExtResource("2_v5cve")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nlgl"]
+atlas = ExtResource("2_v5cve")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnp7p"]
+atlas = ExtResource("2_v5cve")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jn7ix"]
+atlas = ExtResource("2_v5cve")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vuplt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t76r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2ytr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72sqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nlgl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnp7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jn7ix")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_h6wxn"]
+script = ExtResource("6_86ric")
+Name = "Paladin"
+Friendly = true
+Dialogue = Array[String](["Asi que tú eres la ofrenda de este año?", "No te ves muy fuerte que digamos, pero me serviras para calentar", "Estos udistas, mandar a alguien novato a pelear contra mi, se nota que se les estan acabando las opciones", "Espero que estes preparado chico, aqui acaba tu vida"])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x0i35"]
+size = Vector2(19, 24)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_twa3v"]
+radius = 24.0208
+
+[node name="NPC" type="CharacterBody2D"]
+z_index = 9
+motion_mode = 1
+script = ExtResource("1_1jey7")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 0)
+sprite_frames = SubResource("SpriteFrames_vuplt")
+animation = &"Idle"
+
+[node name="Textbox" parent="." instance=ExtResource("3_lq5o1")]
+unique_name_in_owner = true
+
+[node name="Textboxsfx" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_dpgu0")
+
+[node name="Node2D" parent="." instance=ExtResource("5_o8ycx")]
+unique_name_in_owner = true
+resource = SubResource("Resource_h6wxn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_x0i35")
+
+[node name="Event" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Event"]
+position = Vector2(-2, 0)
+shape = SubResource("CircleShape2D_twa3v")
+
+[connection signal="area_entered" from="Event" to="." method="_on_event_area_entered"]
+[connection signal="area_exited" from="Event" to="." method="_on_event_area_exited"]
